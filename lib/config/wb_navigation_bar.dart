@@ -61,23 +61,6 @@ class _WbNavigationBarState extends State<WbNavigationBar> {
         // Icons horizontal angeordnet
         NavigationDestination(
           icon: Icon(
-            Icons.av_timer_outlined,
-            size: 90,
-            color: Colors.white,
-            shadows: [
-              BoxShadow(
-                color: Colors.black,
-                blurRadius: 8,
-                offset: Offset(4, 4),
-                spreadRadius: 0,
-              )
-            ],
-          ),
-          label: "Timer",
-          enabled: true,
-        ),
-        NavigationDestination(
-          icon: Icon(
             Icons.timer_outlined,
             size: 90,
             color: Colors.white,
@@ -91,6 +74,23 @@ class _WbNavigationBarState extends State<WbNavigationBar> {
             ],
           ),
           label: "Stoppuhr",
+          enabled: true,
+        ),
+        NavigationDestination(
+          icon: Icon(
+            Icons.av_timer_outlined,
+            size: 90,
+            color: Colors.white,
+            shadows: [
+              BoxShadow(
+                color: Colors.black,
+                blurRadius: 8,
+                offset: Offset(4, 4),
+                spreadRadius: 0,
+              )
+            ],
+          ),
+          label: "Timer",
         ),
       ],
       // const StopWatchScreen();

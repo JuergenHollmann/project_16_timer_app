@@ -27,7 +27,7 @@ class _StartScreenState extends State<StartScreen> {
   int _iMilisec = 0;
   int _iSec = 0;
   int _iMin = 0;
-  List<int> _iTimer = [0, 0, 0];
+  List<int> _iStopWatch = [0, 0, 0];
   bool counterStart = true;
 
   void runCounter(int iCounter) async {
@@ -44,18 +44,18 @@ class _StartScreenState extends State<StartScreen> {
       }
       if (counterStart) {
         setState(() {
-          _iTimer[0] = _iMilisec;
-          _iTimer[1] = _iSec;
-          _iTimer[2] = _iMin;
+          _iStopWatch[0] = _iMilisec;
+          _iStopWatch[1] = _iSec;
+          _iStopWatch[2] = _iMin;
         });
       }
     }
   }
 
-  void startCounter(int iTimer) {
+  void startCounter(int iStopWatch) {
     setState(() {
       counterStart = true;
-      runCounter(iTimer);
+      runCounter(iStopWatch);
     });
   }
 
@@ -68,7 +68,7 @@ class _StartScreenState extends State<StartScreen> {
   }
 
   void clearCounter() {
-    _iTimer = [0, 0, 0];
+    _iStopWatch = [0, 0, 0];
     _iMilisec = 0;
     _iSec = 0;
     _iMin = 0;
@@ -95,7 +95,7 @@ class _StartScreenState extends State<StartScreen> {
       appBar: AppBar(
         backgroundColor: wbColorAppBarBlue,
         title: const Text(
-          'Timer und Stoppuhr',
+          'Stoppuhr und Timer',
           style: TextStyle(
             color: Colors.white,
             fontSize: 24,
@@ -115,7 +115,7 @@ class _StartScreenState extends State<StartScreen> {
                 //Text('Page $_currentPageIndex'), // nur zur Kontrolle anzeigen
                 /*--------------------------------- Überschrift ---*/
                 const Text(
-                  "Timer",
+                  "Stoppuhr",
                   style: TextStyle(
                     fontSize: 60,
                     fontWeight: FontWeight.w900,
@@ -193,7 +193,7 @@ class _StartScreenState extends State<StartScreen> {
                       child: Center(
                         child: Text(
                           /*--------------------------------- *** ---*/
-                          "${_iTimer[2]}",
+                          "${_iStopWatch[2]}",
                           /*--------------------------------- *** ---*/
                           style: const TextStyle(
                             fontSize: 80,
@@ -223,7 +223,7 @@ class _StartScreenState extends State<StartScreen> {
                       child: Center(
                         child: Text(
                           /*--------------------------------- *** ---*/
-                          "${_iTimer[1]}",
+                          "${_iStopWatch[1]}",
                           /*--------------------------------- *** ---*/
                           style: const TextStyle(
                             fontSize: 80,
@@ -274,7 +274,7 @@ class _StartScreenState extends State<StartScreen> {
                 Center(
                   child: Text(
                     /*--------------------------------- *** ---*/
-                    "... und ${_iTimer[0]} Millisekunden",
+                    "... und ${_iStopWatch[0]} Millisekunden",
                     /*--------------------------------- *** ---*/
                     style: const TextStyle(
                       fontSize: 20,
@@ -292,19 +292,19 @@ class _StartScreenState extends State<StartScreen> {
                       child: GestureDetector(
                         child: WbButtonUniversal(
                           wbColor: wbColorButtonGreen,
-                          icon: Icons.av_timer_outlined,
+                          icon: Icons.timer_outlined,
                           iconSize: 40,
                           wbButtonUniversalText: "Start",
                           onButtonTap: () {
                             /*--------------------------------- *** ---*/
-                            startCounter(_iTimer[0]);
+                            startCounter(_iStopWatch[0]);
                             /*--------------------------------- Snackbar ---*/
                             ScaffoldMessenger.of(context)
                                 .showSnackBar(const SnackBar(
                               backgroundColor: wbColorButtonGreen,
                               duration: Duration(milliseconds: 800),
                               content: Text(
-                                "Der Timer wurde gestartet ... 😉",
+                                "Die Stoppuhr wurde gestartet ... 😉",
                                 style: TextStyle(
                                   fontSize: 28,
                                   fontWeight: FontWeight.bold,
@@ -338,7 +338,7 @@ class _StartScreenState extends State<StartScreen> {
                             backgroundColor: wbColorButtonDarkRed,
                             duration: Duration(milliseconds: 800),
                             content: Text(
-                              "Der Timer wurde gestoppt ... 😉",
+                              "Die Stoppuhr wurde angehalten ... 😉",
                               style: TextStyle(
                                 fontSize: 28,
                                 fontWeight: FontWeight.bold,
@@ -362,7 +362,7 @@ class _StartScreenState extends State<StartScreen> {
                   wbColor: wbColorOrangeDarker,
                   icon: Icons.restore_outlined,
                   iconSize: 40,
-                  wbButtonUniversalText: "Den Timer zurücksetzen",
+                  wbButtonUniversalText: "Stoppuhr zurücksetzen",
                   onButtonTap: () {
                     /*--------------------------------- Reset ---*/
                     stopCounter();
@@ -372,7 +372,7 @@ class _StartScreenState extends State<StartScreen> {
                       backgroundColor: wbColorOrangeDarker,
                       duration: Duration(milliseconds: 800),
                       content: Text(
-                        "Der Timer wurde zurückgesetzt ... 😉",
+                        "Die Stoppuhr wurde zurückgesetzt ... 😉",
                         style: TextStyle(
                           fontSize: 28,
                           fontWeight: FontWeight.bold,
