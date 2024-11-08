@@ -15,11 +15,11 @@ Benachrichtigung: Eine einfache Benachrichtigung (z.B. Text, Snack-Bar, Hintergr
 Async und Await: Nutze async und await, um den Timer asynchron zu betreiben, sodass die UI nicht blockiert wird.
 
 Stoppuhr-Funktion (Option 2)
-Starten, Stoppen und Zurücksetzen:
-Ein Button zum Starten der Stoppuhr.
-Ein Button zum Stoppen der Stoppuhr.
-Ein Button zum Zurücksetzen der Stoppuhr.
-Anzeige: Eine Anzeige, die die verstrichene Zeit in Minuten, Sekunden und Millisekunden zeigt.
+√ Starten, Stoppen und Zurücksetzen:
+√ Ein Button zum Starten der Stoppuhr.
+√ Ein Button zum Stoppen der Stoppuhr.
+√ Ein Button zum Zurücksetzen der Stoppuhr.
+√ Anzeige: Eine Anzeige, die die verstrichene Zeit in Minuten, Sekunden und Millisekunden zeigt.
 Async und Await:
 Nutze async und await, um die Zeitmessung asynchron durchzuführen, sodass die UI nicht blockiert wird.
 
