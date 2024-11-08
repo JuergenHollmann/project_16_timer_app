@@ -160,11 +160,12 @@ class _WbNavigationBarState extends State<WbNavigationBar> {
                           ),
                           side: BorderSide(
                             style: BorderStyle.solid,
-                            width: 2,
-                            color: Colors.white,
+                            width: 3,
+                            color: wbColorBackgroundBlue,
+                            strokeAlign: 1,
                           ),
                         ),
-                        //shadowColor: Colors.black,
+                        shadowColor: Colors.black,
 
                         // [
                         //   BoxShadow(
