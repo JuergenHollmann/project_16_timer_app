@@ -17,36 +17,36 @@ class StartScreen extends StatefulWidget {
 }
 
 class _StartScreenState extends State<StartScreen> {
-  //final int _currentPageIndex = 0;
+  //final int currentPageIndex = 0;
   final List<Widget> screens = [
     const TimerScreen(),
     const StartScreen(),
     const StopWatchScreen(),
   ];
   /*--------------------------------- *** ---*/
-  int _iMilisec = 0;
-  int _iSec = 0;
-  int _iMin = 0;
-  List<int> _iStopWatch = [0, 0, 0];
-  bool counterStart = true;
+  int getMilliseconds = 0;
+  int getSeconds = 0;
+  int getMinutes = 0;
+  List<int> listtopWatch = [0, 0, 0];
+  bool start = true;
 
   void runCounter(int iCounter) async {
-    while (counterStart == true) {
+    while (start == true) {
       await Future.delayed(const Duration(milliseconds: 1), () => iCounter++);
-      _iMilisec = iCounter;
-      if (_iMilisec > 1000) {
+      getMilliseconds = iCounter;
+      if (getMilliseconds > 999) {
         iCounter = 0;
-        _iSec++;
-        if (_iSec > 60) {
-          _iSec = 0;
-          _iMin++;
+        getSeconds++;
+        if (getSeconds > 60) {
+          getSeconds = 0;
+          getMinutes++;
         }
       }
-      if (counterStart) {
+      if (start) {
         setState(() {
-          _iStopWatch[0] = _iMilisec;
-          _iStopWatch[1] = _iSec;
-          _iStopWatch[2] = _iMin;
+          listtopWatch[0] = getMilliseconds;
+          listtopWatch[1] = getSeconds;
+          listtopWatch[2] = getMinutes;
         });
       }
     }
@@ -54,24 +54,24 @@ class _StartScreenState extends State<StartScreen> {
 
   void startCounter(int iStopWatch) {
     setState(() {
-      counterStart = true;
+      start = true;
       runCounter(iStopWatch);
     });
   }
 
   Future<void> stopCounter() async {
     Future.delayed(
-        const Duration(milliseconds: 200), () => counterStart = false);
+        const Duration(milliseconds: 200), () => start = false);
     setState(() {
-      counterStart = false;
+      start = false;
     });
   }
 
   void clearCounter() {
-    _iStopWatch = [0, 0, 0];
-    _iMilisec = 0;
-    _iSec = 0;
-    _iMin = 0;
+    listtopWatch = [0, 0, 0];
+    getMilliseconds = 0;
+    getSeconds = 0;
+    getMinutes = 0;
   }
 
   String? timeFunction(int sTsTcL) {
@@ -112,7 +112,7 @@ class _StartScreenState extends State<StartScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                //Text('Page $_currentPageIndex'), // nur zur Kontrolle anzeigen
+                //Text('Page $currentPageIndex'), // nur zur Kontrolle anzeigen
                 /*--------------------------------- Überschrift ---*/
                 const Text(
                   "Stoppuhr",
@@ -193,7 +193,7 @@ class _StartScreenState extends State<StartScreen> {
                       child: Center(
                         child: Text(
                           /*--------------------------------- *** ---*/
-                          "${_iStopWatch[2]}",
+                          "${listtopWatch[2]}",
                           /*--------------------------------- *** ---*/
                           style: const TextStyle(
                             fontSize: 80,
@@ -223,7 +223,7 @@ class _StartScreenState extends State<StartScreen> {
                       child: Center(
                         child: Text(
                           /*--------------------------------- *** ---*/
-                          "${_iStopWatch[1]}",
+                          "${listtopWatch[1]}",
                           /*--------------------------------- *** ---*/
                           style: const TextStyle(
                             fontSize: 80,
@@ -274,7 +274,7 @@ class _StartScreenState extends State<StartScreen> {
                 Center(
                   child: Text(
                     /*--------------------------------- *** ---*/
-                    "... und ${_iStopWatch[0]} Millisekunden",
+                    "... und ${listtopWatch[0]} Millisekunden",
                     /*--------------------------------- *** ---*/
                     style: const TextStyle(
                       fontSize: 20,
@@ -297,7 +297,7 @@ class _StartScreenState extends State<StartScreen> {
                           wbButtonUniversalText: "Start",
                           onButtonTap: () {
                             /*--------------------------------- *** ---*/
-                            startCounter(_iStopWatch[0]);
+                            startCounter(listtopWatch[0]);
                             /*--------------------------------- Snackbar ---*/
                             ScaffoldMessenger.of(context)
                                 .showSnackBar(const SnackBar(

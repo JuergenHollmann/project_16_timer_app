@@ -13,7 +13,7 @@ class StopWatchScreen extends StatefulWidget {
 }
 
 class _StopWatchScreenState extends State<StopWatchScreen> {
-  final int _currentPageIndex = 1;
+  final int currentPageIndex = 1;
 
   final List<Widget> screens = [
     const StopWatchScreen(),
@@ -44,7 +44,7 @@ class _StopWatchScreenState extends State<StopWatchScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text('Page $_currentPageIndex'), // nur zur Kontrolle anzeigen
+              Text('Page $currentPageIndex'), // nur zur Kontrolle anzeigen
               /*--------------------------------- Überschrift ---*/
               const Text(
                 "Stoppwatch",
