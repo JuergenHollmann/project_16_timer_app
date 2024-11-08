@@ -20,12 +20,6 @@ class _StopWatchScreenState extends State<StopWatchScreen> {
     const StartScreen(),
   ];
 
-  // void _onItemTapped(int index) {
-  //   setState(() {
-  //     _currentPageIndex = index;
-  //   });
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

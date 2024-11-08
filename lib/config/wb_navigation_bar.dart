@@ -93,55 +93,6 @@ class _WbNavigationBarState extends State<WbNavigationBar> {
           label: "Timer",
         ),
       ],
-      // const StopWatchScreen();
-      // selectedIndex: index,
-      // _currentPageIndex = index,
-      // currentIndex = _currentPageIndex,
-      // selectedItemColor: Colors.black,
-      // onTap: _onItemTapped,
     );
   }
 }
-
-      // /*--------------------------------- BottomNavigationBar ---*/
-      // bottomNavigationBar: BottomNavigationBar(
-      //   backgroundColor: wbColorAppBarBlue,
-      //   items: const <BottomNavigationBarItem>[
-      //     BottomNavigationBarItem(
-      //       icon: Icon(
-      //         Icons.av_timer_outlined,
-      //         size: 120,
-      //         color: Colors.white,
-      //         shadows: [
-      //           BoxShadow(
-      //             color: Colors.black,
-      //             blurRadius: 8,
-      //             offset: Offset(4, 4),
-      //             spreadRadius: 0,
-      //           )
-      //         ],
-      //       ),
-      //       label: "Timer",
-      //     ),
-      //     BottomNavigationBarItem(
-      //       icon: Icon(
-      //         Icons.timer_outlined,
-      //         size: 120,
-      //         color: Colors.white,
-      //         shadows: [
-      //           BoxShadow(
-      //             color: Colors.black,
-      //             blurRadius: 8,
-      //             offset: Offset(4, 4),
-      //             spreadRadius: 0,
-      //           )
-      //         ],
-      //       ),
-      //       label: "Stoppuhr",
-      //     ),
-      //   ],
-      //   currentIndex: _selectedIndex,
-      //   selectedItemColor: Colors.white,
-      //   onTap: _onItemTapped,
-      // ),
-      // /*--------------------------------- *** ---*/
