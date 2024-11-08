@@ -2,7 +2,9 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_exit_app/flutter_exit_app.dart';
+import 'package:project_16_timer_app/config/wb_button_universal.dart';
 import 'package:project_16_timer_app/config/wb_colors.dart';
+import 'package:project_16_timer_app/config/wb_sizes.dart';
 import 'package:project_16_timer_app/start_screen.dart';
 import 'package:project_16_timer_app/stopwatch_screen.dart';
 import 'package:project_16_timer_app/timer_screen.dart';
@@ -135,13 +137,135 @@ class _WbNavigationBarState extends State<WbNavigationBar> {
             ));
           } else if (index == 2) {
             log("Index 2 = ExitApp geklickt");
+            // /*--------------------------------- *** ---*/
+            //   showDatePicker( // Kalender mit Datumsauswahl einblenden
+            //     context: context,
+            //     firstDate: DateTime.now(),
+            //     lastDate: DateTime.now(),
+            //   );
+            /*--------------------------------- AlertDialog ---*/
+            // Abfrage ob die App geschlossen werden soll:
+            showDialog<String>(
+                context: context,
+                builder: (BuildContext context) => AlertDialog(
+                        // shape: const BeveledRectangleBorder(
+                        //   side: BorderSide(
+                        //     color: Colors.white,
+                        //   ),
+                        // ),
 
-                /*--------------------------------- *** ---*/
-                // Abfrage ob wirklich die App geschlossen werden soll:
-                
+                        shape: const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(20),
+                          ),
+                          side: BorderSide(
+                            style: BorderStyle.solid,
+                            width: 2,
+                            color: Colors.white,
+                          ),
+                        ),
+                        //shadowColor: Colors.black,
 
-            FlutterExitApp.exitApp(iosForceExit: true);
-            //const ExitApp();
+                        // [
+                        //   BoxShadow(
+                        //     color: Colors.black,
+                        //     blurRadius: 8,
+                        //     offset: Offset(4, 4),
+                        //     spreadRadius: 0,
+                        //   )
+                        // ],
+
+                        backgroundColor: wbColorButtonBlue,
+                        /*--------------------------------- Überschrift ---*/
+                        title: const Text('Möchtest Du jetzt die App beenden?',
+                            style: TextStyle(
+                              fontSize: 28,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black,
+                            )),
+                        /*--------------------------------- Beschreibung ---*/
+                        content: const Text(
+                          "",
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.blue,
+                          ),
+                        ),
+                        /*--------------------------------- actions ---*/
+                        actions: <Widget>[
+                          /*--------------------------------- Button 1 ---*/
+                          WbButtonUniversal(
+                            wbColor: wbColorButtonGreen,
+                            icon: Icons.report_outlined, // dangerous_outlined
+                            iconSize: 40,
+                            wbButtonUniversalText: "Nein",
+                            onButtonTap: () {
+                              Navigator.pop(context);
+                              /*--------------------------------- Snackbar ---*/
+                              ScaffoldMessenger.of(context)
+                                  .showSnackBar(const SnackBar(
+                                backgroundColor: wbColorButtonGreen,
+                                duration: Duration(milliseconds: 800),
+                                content: Text(
+                                  "Die Stoppuhr-App wurde NICHT beendet ... 😉",
+                                  style: TextStyle(
+                                    fontSize: 28,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ));
+                              /*--------------------------------- *** ---*/
+                              log("192 - lib/config/wb_navigation_bar.dart");
+                            },
+                            width: 155,
+                            height: 60,
+                          ),
+                          /*--------------------------------- *** ---*/
+                          wbSizedBoxHeight24,
+                          /*--------------------------------- Button 2 ---*/
+                          WbButtonUniversal(
+                            wbColor: wbColorButtonDarkRed,
+                            icon: Icons.dangerous_outlined, // report_outlined
+                            iconSize: 40,
+                            wbButtonUniversalText: "Ja - Beenden",
+                            onButtonTap: () {
+                              Navigator.pop(context);
+                              /*--------------------------------- Snackbar ---*/
+                              ScaffoldMessenger.of(context)
+                                  .showSnackBar(const SnackBar(
+                                backgroundColor: Colors.black,
+                                duration: Duration(milliseconds: 2000),
+                                content: Text(
+                                  "Danke für das Benutzen der Stoppuhr-App ... 😉",
+                                  style: TextStyle(
+                                    fontSize: 28,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ));
+                              /*--------------------------------- *** ---*/
+                              log("223 - lib/config/wb_navigation_bar.dart");
+                              /*--------------------------------- *** ---*/
+                              // Verzögerug von 2 Sekunden einbauen:
+                              // Future<void> withDelay() async {
+                              //   await Future.delayed(
+                              //       const Duration(seconds: 2));
+                              //   log("229 - lib/config/wb_navigation_bar.dart");
+                              //   FlutterExitApp.exitApp(
+                              //       iosForceExit: true); // funzt nicht!
+                              // }
+                              /*--------------------------------- *** ---*/
+                              FlutterExitApp.exitApp(iosForceExit: true);
+                            },
+                            width: 260,
+                            height: 60,
+                          ),
+                          /*--------------------------------- *** ---*/
+                        ]));
+            /*--------------------------------- *** ---*/
           }
         });
     /*--------------------------------- *** ---*/
