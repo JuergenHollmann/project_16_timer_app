@@ -1,0 +1,256 @@
+  // /*--------------------------------- *** ---*/
+  // int _remainingSeconds = 0;
+  // bool _isTimerRunning = false;
+  // final TextEditingController _durationController = TextEditingController();
+
+  // void _startTimer() {
+  //   final durationInSeconds = int.tryParse(_durationController.text);
+  //   if (durationInSeconds == null || durationInSeconds <= 0) {
+  //     log("Die Eingabe der Sekunden fehlt noch.");
+  //     ScaffoldMessenger.of(context).showSnackBar(
+  //       const SnackBar(content: Text("Die Eingabe der Sekunden fehlt noch.")),
+  //     );
+  //     return;
+  //   }
+
+  //   setState(() {
+  //     _remainingSeconds = durationInSeconds;
+  //     _isTimerRunning = true;
+  //   });
+
+  //   _runTimer();
+  // }
+
+  // Future<void> _runTimer() async {
+  //   while (_isTimerRunning && _remainingSeconds > 0) {
+  //     await Future.delayed(const Duration(seconds: 1));
+  //           log("Restliche Sekunden: $_remainingSeconds");
+  //     if (!_isTimerRunning) return;
+
+  //     setState(() {
+  //       _remainingSeconds--;
+  //     });
+
+  //     // if (_remainingSeconds == 0) {
+  //     //   ScaffoldMessenger.of(context).showSnackBar(
+  //     //     const SnackBar(content: Text('Der Timer ist abgelaufen!')),
+  //     //   );
+  //     //   _isTimerRunning = false;
+  //     // }
+  //   }
+  // }
+
+  // void _stopTimer() {
+  //   setState(() {
+  //     _isTimerRunning = false;
+  //   });
+  // }
+  // // /*--------------------------------- *** ---*/
+  // int remainingSeconds = 0;
+  // Timer? timer;
+  // final TextEditingController durationController = TextEditingController();
+
+  // void startTimer() {
+  //   final durationInSeconds = int.tryParse(durationController.text) ?? 0;
+  //   remainingSeconds = durationInSeconds;
+
+  //   timer = Timer.periodic(const Duration(seconds: 1), (timer) {
+  //     setState(() {
+  //       if (remainingSeconds > 0) {
+  //         remainingSeconds--;
+  //       } else {
+  //         timer.cancel();
+  //         ScaffoldMessenger.of(context).showSnackBar(
+  //           const SnackBar(content: Text('Timer abgelaufen!')),
+  //         );
+  //       }
+  //     });
+  //   });
+  // }
+
+  // void stopTimer() {
+  //   timer?.cancel();
+  // }
+  // /*--------------------------------- *** ---*/
+  //   @override
+//   Widget build(BuildContext context) {
+//     return Center(
+//       child: Column(
+//         mainAxisAlignment: MainAxisAlignment.center,
+//         children: [
+//           const Text("Input Zeit"),
+//           const SizedBox(height: 10),
+//           Row(
+//             mainAxisAlignment: MainAxisAlignment.center,
+//             children: [
+//               SizedBox(
+//                 width: 100,
+//                 child: TextFormField(
+//                   decoration: const InputDecoration(
+//                     labelText: "min",
+//                     border: OutlineInputBorder(),
+//                   ),
+//                 ),
+//               ),
+//               SizedBox(
+//                 width: 100,
+//                 child: TextFormField(
+//                   decoration: const InputDecoration(
+//                     labelText: "sec",
+//                     border: OutlineInputBorder(),
+//                   ),
+//                 ),
+//               ),
+//               SizedBox(
+//                 width: 100,
+//                 child: TextFormField(
+//                   decoration: const InputDecoration(
+//                     labelText: "ms.",
+//                     border: OutlineInputBorder(),
+//                   ),
+//                 ),
+//               ),
+//             ],
+//           ),
+//           const SizedBox(height: 100),
+//           Column(
+//             mainAxisAlignment: MainAxisAlignment.center,
+//             children: [
+//               Row(
+//                 mainAxisAlignment: MainAxisAlignment.spaceAround,
+//                 children: [
+//                   Row(
+//                     children: [
+//                       SizedBox(
+//                         width: 65,
+//                         child: Text(
+//       /*--------------------------------- *** ---*/
+
+//                           "${_iTimer[2]}",
+
+//       /*--------------------------------- *** ---*/
+
+//                           style: Theme.of(context).textTheme.displayMedium,
+//                         ),
+//                       ),
+//                       Container(
+//                         color: Colors.amber,
+//                         child: SizedBox(
+//                           width: 60,
+//                           child: Text(
+//                             "min.",
+//                             style: Theme.of(context).textTheme.displaySmall,
+//                           ),
+//                         ),
+//                       ),
+//                       SizedBox(
+//                         width: 65,
+//                         child: Text(
+
+//       /*--------------------------------- *** ---*/
+
+//                           "${_iTimer[1]}",
+
+//       /*--------------------------------- *** ---*/
+
+//                           style: Theme.of(context).textTheme.displayMedium,
+//                         ),
+//                       ),
+//                       Container(
+//                         color: Colors.amber,
+//                         child: SizedBox(
+//                           width: 60,
+//                           child: Text(
+//                             "sec.",
+//                             style: Theme.of(context).textTheme.displaySmall,
+//                           ),
+//                         ),
+//                       ),
+//                       SizedBox(
+//                         width: 100,
+//                         child: Text(
+
+//       /*--------------------------------- *** ---*/
+
+//                           "${_iTimer[0]}",
+
+//       /*--------------------------------- *** ---*/
+
+//                           style: Theme.of(context).textTheme.displayMedium,
+//                         ),
+//                       ),
+//                       Container(
+//                         color: Colors.amber,
+//                         child: SizedBox(
+//                           width: 50,
+//                           child: Text(
+//                             "ms.",
+//                             style: Theme.of(context).textTheme.displaySmall,
+//                           ),
+//                         ),
+//                       ),
+//                     ],
+//                   ),
+//                 ],
+//               ),
+//               const SizedBox(height: 40),
+//               Row(
+//                 mainAxisAlignment: MainAxisAlignment.center,
+//                 children: [
+//                   ElevatedButton(
+//                     onPressed: () {
+
+//       /*--------------------------------- *** ---*/
+
+//                       startCounter(_iTimer[0]);
+
+//       /*--------------------------------- *** ---*/
+
+//                       // ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+//                       //     duration: Duration(milliseconds: 500),
+//                       //     content: Text("Start")));
+//                     },
+//                     child: const Text("Start"),
+//                   ),
+//                   const SizedBox(width: 10),
+//                   ElevatedButton(
+//                     onPressed: () {
+
+//       /*--------------------------------- *** ---*/
+
+//                       stopCounter();
+//                       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+//                           duration: Duration(milliseconds: 500),
+//                           content: Text("Stop")));
+//       /*--------------------------------- *** ---*/
+
+//                     },
+//                     child: const Text("Stop"),
+//                   ),
+//                   const SizedBox(width: 10),
+//                   ElevatedButton(
+//                     onPressed: () {
+
+//       /*--------------------------------- *** ---*/
+
+//                       stopCounter();
+//                       clearCounter();
+
+//                       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+//                           duration: Duration(milliseconds: 500),
+//                           content: Text("Clear")));
+//       /*--------------------------------- *** ---*/
+
+//                     },
+//                     child: const Text("Clear"),
+//                   ),
+//                 ],
+//               ),
+//             ],
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+// }
+
