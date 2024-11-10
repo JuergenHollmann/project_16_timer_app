@@ -1,3 +1,6 @@
+/* https://pub.dev/packages/flutter_exit_app 
+   Installation über Terminal: flutter pub add flutter_exit_app */
+
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -55,7 +58,7 @@ class _ExitAppState extends State<ExitApp> {
         ),
         body: Center(
           child: Column(
-            children: [    
+            children: [
               Text('Running on: $_platformVersion\n'),
               TextButton(
                 onPressed: () {
